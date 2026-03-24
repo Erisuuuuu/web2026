@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mt-5 text-center">Авторизация</h1>
+
+<form method="post" action="{{ url_for('login') }}" class="mt-4">
+  <div class="mb-3">
+    <label for="login" class="form-label">Логин</label>
+    <input type="text" class="form-control" id="login" name="login" required>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+
+{% if form_fields %}
+<h2 class="mt-5">Данные формы (после отправки)</h2>
+<ul>
+  {% for name, value in form_fields %}
+  <li><strong>{{ name }}</strong>: {{ value }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mt-5 text-center">Информация о запросе</h1>
+<h2 class="mt-5 text-center">Cookies</h2>
+{% if cookies %}
+<ul>
+{% for name, value in cookies %}
+<li><strong>{{ name }}</strong>: {{ value }}</li>
+{% endfor %}
+</ul>
+{%else%}
+<p>Нет cookies</p>
+{% endif %}
+<h2 class="mt-5 text-center">Параметры запроса</h2>
+{% if url_params %}
+<ul>
+{% for name, value in url_params %}
+<li><strong>{{ name }}</strong>: {{ value }}</li>
+{% endfor %}
+</ul>
+{%else%}
+<p>Нет параметров</p>
+{% endif %} 
+
+<h2 class="mt-5 text-center">Заголовки запроса</h2>
+{% if headers %}
+<ul>
+{% for name, value in headers %}
+<li><strong>{{ name }}</strong>: {{ value }}</li>
+{% endfor %}
+</ul>
+{%else%}
+<p>Нет заголовков</p>
+{% endif %}
+{% endblock %}
